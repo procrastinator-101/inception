@@ -1,8 +1,9 @@
 #!/bin/zsh
 
-DockerPath=/goinfre/$USER/docker
+/goinfre/$USER/docker
 
-cp -r ~/.docker $(DockerPath)
+cp -r ~/.docker /goinfre/$USER/docker
+
 
 #echo "export MACHINE_STORAGE_PATH=/goinfre/$USER/docker"
 

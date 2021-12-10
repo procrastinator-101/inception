@@ -1,3 +1,11 @@
-FROM alpine:3.15
+FROM debian:buster
 
-CMD [ "ash" ]
+RUN apt-get update
+
+#RUN Expect "spawn apt-get install nginx; send"
+
+RUN apt-get -y install nginx
+
+EXPOSE 443
+
+CMD ["/bin/bash"]

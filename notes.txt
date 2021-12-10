@@ -1,0 +1,2 @@
+docker logs : prints the logs of a conatiner (which usually was run in a the bckground)
+    -   add -f oprion to follow the logs

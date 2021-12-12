@@ -16,5 +16,3 @@ rm -rf /etc/nginx/sites-available/*
 rm -rf /tools /conf
 
 service nginx start
-
-bash

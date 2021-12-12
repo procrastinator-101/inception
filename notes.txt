@@ -1,2 +1,22 @@
+Docker CLI :
+
 docker logs : prints the logs of a conatiner (which usually was run in a the bckground)
     -   add -f oprion to follow the logs
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+-   A build’s context is the set of files located in the specified :
+    *   PATH
+    *   URL :
+        -   Git repositories
+        -   pre-packaged tarball contexts (.tar files)
+        -   plain text files
+
+
+Save the state of a container:
+    -   docker commit _container _newImageName
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+CSR : a file that containes info about the FQDN that the CA use ti authenticate the FQDN.

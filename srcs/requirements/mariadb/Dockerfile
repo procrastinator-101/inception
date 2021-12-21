@@ -1,8 +1,11 @@
 FROM debian:buster
 
-RUN apt-get update
+ADD tools /tools
 
-RUN apt-get -y install mariadb-server
+ADD conf /conf
 
-# CMD [ "/bin/bash", "tools/secure_installation.sh" ]
+RUN /bin/bash /tools/default_setup.sh
 
+EXPOSE 3306
+
+CMD ["/bin/bash", "tools/post_setup.sh"]

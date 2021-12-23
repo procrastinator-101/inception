@@ -1,19 +1,33 @@
 #!/bin/bash
 
+# ===================== installing wordpress ===================== #
+# ================================================================ #
 
-cp -p /tools/nginx-selfsigned.key /etc/ssl/private/
-cp -p /tools/nginx-selfsigned.crt /etc/ssl/certs/
-chown 400 /etc/ssl/private/
-echo -e "\n\e[32mSetting HTTPS\t\t\t\t\tdone\e[0m\n"
+# curl https://wordpress.org/wordpress-5.8.2.tar.gz > /tmp/wordpress-5.8.2.tar.gz
+
+mkdir -p /var/www/
+
+tar xzvf /tools/wordpress-5.8.2.tar.gz -C /var/www/
+
+cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
+
+mkdir /var/www/wordpress/wp-content/upgrade
+
+echo -e "\n\e[32mwordpress\t\t\t\t\tinstalled\e[0m\n"
 
 
-cp /conf/nginx.conf /etc/nginx/
-cp /conf/default.conf /etc/nginx/conf.d/
-echo -e "\n\e[32mSetting Nginx Configuration\t\t\t\t\tdone\e[0m\n"
+# ==================== configuring wordpress ===================== #
+# ================================================================ #
 
-rm -rf /etc/nginx/sites-enabled/*
-rm -rf /etc/nginx/sites-available/*
+chown -R :www-data /var/www/wordpress
 
-rm -rf /tools /conf
+find /var/www/wordpress/ -type d -exec chmod 750 {} \;
+find /var/www/wordpress/ -type f -exec chmod 640 {} \;
 
-service nginx start
+chmod 400 /var/www/wordpress/wp-config.php
+
+echo -e "\n\e[32mwordpress configuration\t\t\t\t\tdone\e[0m\n"
+
+# rm -rf /tools /conf
+
+bash

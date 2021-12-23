@@ -3,6 +3,7 @@
 WORDPRESS_ADMIN="wordpress_owner"
 WORDPRESS_ADMIN_PASSWORD="L+H}g_W4;]/_xPT+"
 
+
 # ====================== confuguring mariadb ===================== #
 # ================================================================ #
 service mysql start
@@ -17,7 +18,7 @@ echo -e "\n\e[32mmariadb\t\t\t\t\tconfiguration done\e[0m\n"
 
 mysql -e "CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;"
 
-mysql -e "GRANT ALL ON wordpress.* TO '$WORDPRESS_ADMIN'@'localhost' IDENTIFIED BY '@WORDPRESS_ADMIN_PASSWORD';"
+mysql -e "GRANT ALL ON wordpress.* TO '$WORDPRESS_ADMIN'@'localhost' IDENTIFIED BY '$WORDPRESS_ADMIN_PASSWORD';"
 
 mysql -e "FLUSH PRIVILEGES;"
 

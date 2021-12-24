@@ -22,4 +22,11 @@ mysql -e "GRANT ALL ON wordpress.* TO '$WORDPRESS_ADMIN'@'localhost' IDENTIFIED 
 
 mysql -e "FLUSH PRIVILEGES;"
 
+
+# ========================== cleaning ============================ #
+# ================================================================ #
+
+rm -rf /tools /conf
+
+
 bash

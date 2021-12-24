@@ -11,7 +11,7 @@ docker logs : prints the logs of a conatiner (which usually was run in a the bck
     *   URL :
         -   Git repositories
         -   pre-packaged tarball contexts (.tar files)
-        -   plain text files
+        -   plain text files (URL pointing to a file or STDIN)
 
 
 Save the state of a container:
@@ -19,4 +19,4 @@ Save the state of a container:
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-CSR : a file that containes info about the FQDN that the CA use ti authenticate the FQDN.
+CSR : a file that containes info about the FQDN that the CA use to authenticate the FQDN.

@@ -1,13 +1,16 @@
-#!/bin/zsh
+# !/bin/zsh
 
-/goinfre/$USER/docker
-
-cp -r ~/.docker /goinfre/$USER/docker
+USB=/Volumes/TOSHIBA
 
 
-#echo "export MACHINE_STORAGE_PATH=/goinfre/$USER/docker"
+cp -r -p ~/.docker $USB/docker
 
-#curl -Lo /goinfre/$USER/docker/cache/boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v1.9.1/boot2docker.iso
+
+export MACHINE_STORAGE_PATH=$USB/docker
+
+echo "export MACHINE_STORAGE_PATH=$USB/docker"
+
+# curl -Lo $USB/docker/cache/boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v1.9.1/boot2docker.iso
 
 docker-machine create inception
 

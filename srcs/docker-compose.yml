@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+
+  NGINX:
+    build: requirements/nginx
+    image: NGINX
+    container_name: NGINX
+    ports:
+      - "443:443"
+
+  WordPress:
+    build: requirements/wordpress
+    image: WordPress
+    container_name: WordPress
+    env_file:
+      - .env
+
+  MariaDB:
+    build: requirements/mariadb
+    image: MariaDB
+    container_name: MariaDB
+

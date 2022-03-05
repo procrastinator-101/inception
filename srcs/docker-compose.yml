@@ -6,13 +6,16 @@ services:
     build: requirements/nginx
     image: NGINX
     container_name: NGINX
+    restart: always
     ports:
       - "443:443"
+    
 
   WordPress:
     build: requirements/wordpress
     image: WordPress
     container_name: WordPress
+    restart: always
     env_file:
       - .env
 
@@ -20,4 +23,5 @@ services:
     build: requirements/mariadb
     image: MariaDB
     container_name: MariaDB
+    restart: always
 

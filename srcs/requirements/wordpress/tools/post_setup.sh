@@ -26,12 +26,10 @@ find /var/www/wordpress/ -type f -exec chmod 640 {} \;
 
 chmod 400 /var/www/wordpress/wp-config.php
 
-echo -e "\n\e[32mwordpress configuration\t\t\t\t\tdone\e[0m\n"
+echo -e "\n\e[32mDone configuring Wordpress\e[0m\n"
 
 
-# ========================== cleaning ============================ #
+# ========================== hanging ============================= #
 # ================================================================ #
 
-rm -rf /tools /conf
-
-bash
+sleep 1500

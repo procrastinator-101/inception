@@ -1,16 +1,12 @@
 #!/bin/bash
 
-WORDPRESS_ADMIN="wordpress_owner"
-WORDPRESS_ADMIN_PASSWORD="L+H}g_W4;]/_xPT+"
-
-
 # ====================== confuguring mariadb ===================== #
 # ================================================================ #
 service mysql start
 
 expect -f /conf/mysql_secure_installation.exp
 
-echo -e "\n\e[32mmariadb\t\t\t\t\tconfiguration done\e[0m\n"
+echo -e "\n\e[32mDone configuring Mariadb\e[0m\n"
 
 
 # ==================== setup wordpress database ================== #
@@ -23,10 +19,7 @@ mysql -e "GRANT ALL ON wordpress.* TO '$WORDPRESS_ADMIN'@'localhost' IDENTIFIED 
 mysql -e "FLUSH PRIVILEGES;"
 
 
-# ========================== cleaning ============================ #
+# ========================== hanging ============================= #
 # ================================================================ #
 
-rm -rf /tools /conf
-
-
-bash
+sleep 1500

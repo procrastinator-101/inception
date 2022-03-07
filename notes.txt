@@ -20,3 +20,12 @@ Save the state of a container:
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CSR : a file that containes info about the FQDN that the CA use to authenticate the FQDN.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+-   bridge : is the default network for docker. It allows the containers to communicate wirh each other and 
+    the host network through port mapping.
+
+-   none : isolated network that allows no communication outside of it.
+
+-   host : the network of the host machine. the containers can't use the same port.

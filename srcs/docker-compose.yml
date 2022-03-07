@@ -2,26 +2,63 @@ version: '3.9'
 
 services:
 
-  NGINX:
+  nginx:
     build: requirements/nginx
-    image: NGINX
-    container_name: NGINX
-    restart: always
-    ports:
-      - "443:443"
-    
-
-  WordPress:
-    build: requirements/wordpress
-    image: WordPress
-    container_name: WordPress
+    image: nginx
+    container_name: nginx
     restart: always
     env_file:
       - .env
+    volumes:
+      - WordPress:${NGINX_SERVED_FILES_PATH}
+    ports:
+      - "443:443"
+    networks:
+      - inception
+    
 
-  MariaDB:
-    build: requirements/mariadb
-    image: MariaDB
-    container_name: MariaDB
+  wordpress:
+    build: requirements/wordpress
+    image: wordpress
+    container_name: wordpress
     restart: always
+    env_file:
+      - .env
+    volumes:
+      - WordPress:${WORDPRESS_SERVED_FILES_PATH}
+    networks:
+      - inception
+
+  mariadb:
+    build: requirements/mariadb
+    image: mariadb
+    container_name: mariadb
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - DB:${MYSQL_DB_PATH}
+    networks:
+      - inception
+
+
+networks:
+  inception:
+    name: inception
+
+volumes:
+  DB:
+    name: DB
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: ${VOLUME_DB_PATH}
+  WordPress:
+    name: WordPress
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: ${VOLUME_WORDPRESS_PATH}
 

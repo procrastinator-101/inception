@@ -26,3 +26,5 @@ echo -e "\n\e[32mDone Configuring Nginx\e[0m\n"
 # ================================================================ #
 
 service nginx start
+
+sleep 3500

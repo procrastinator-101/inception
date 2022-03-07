@@ -5,13 +5,15 @@
 
 # curl https://wordpress.org/wordpress-5.8.2.tar.gz > /tmp/wordpress-5.8.2.tar.gz
 
-mkdir -p /var/www/
+SERVED_PATH=/var/www/html
 
-tar xzvf /tools/wordpress-5.8.2.tar.gz -C /var/www/
+mkdir -p ${SERVED_PATH}
 
-cp /conf/wp-config.php /var/www/wordpress/wp-config.php
+tar xzvf /tools/wordpress-5.8.2.tar.gz -C ${SERVED_PATH}
 
-mkdir /var/www/wordpress/wp-content/upgrade
+cp /conf/wp-config.php ${SERVED_PATH}/wordpress/wp-config.php
+
+mkdir ${SERVED_PATH}/wordpress/wp-content/upgrade
 
 echo -e "\n\e[32mwordpress\t\t\t\t\tinstalled\e[0m\n"
 
@@ -19,12 +21,12 @@ echo -e "\n\e[32mwordpress\t\t\t\t\tinstalled\e[0m\n"
 # ==================== configuring wordpress ===================== #
 # ================================================================ #
 
-chown -R www-data:www-data /var/www/wordpress
+chown -R www-data:www-data ${SERVED_PATH}/wordpress
 
-find /var/www/wordpress/ -type d -exec chmod 750 {} \;
-find /var/www/wordpress/ -type f -exec chmod 640 {} \;
+find ${SERVED_PATH}/wordpress/ -type d -exec chmod 750 {} \;
+find ${SERVED_PATH}/wordpress/ -type f -exec chmod 640 {} \;
 
-chmod 400 /var/www/wordpress/wp-config.php
+chmod 400 ${SERVED_PATH}/wordpress/wp-config.php
 
 echo -e "\n\e[32mDone configuring Wordpress\e[0m\n"
 

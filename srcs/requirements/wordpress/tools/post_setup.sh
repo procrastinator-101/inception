@@ -1,25 +1,9 @@
 #!/bin/bash
 
-# ===================== installing wordpress ===================== #
-# ================================================================ #
-
-# curl https://wordpress.org/wordpress-5.8.2.tar.gz > /tmp/wordpress-5.8.2.tar.gz
-
-SERVED_PATH=/var/www/html
-
-mkdir -p ${SERVED_PATH}
-
-tar xzvf /tools/wordpress-5.8.2.tar.gz -C ${SERVED_PATH}
-
-cp /conf/wp-config.php ${SERVED_PATH}/wordpress/wp-config.php
-
-mkdir ${SERVED_PATH}/wordpress/wp-content/upgrade
-
-echo -e "\n\e[32mwordpress\t\t\t\t\tinstalled\e[0m\n"
-
-
 # ==================== configuring wordpress ===================== #
 # ================================================================ #
+
+SERVED_PATH=/var/www/html
 
 chown -R www-data:www-data ${SERVED_PATH}/wordpress
 
@@ -31,9 +15,7 @@ chmod 400 ${SERVED_PATH}/wordpress/wp-config.php
 echo -e "\n\e[32mDone configuring Wordpress\e[0m\n"
 
 
-# ========================== hanging ============================= #
+# ===================== starting fpm service ===================== #
 # ================================================================ #
 
-service php7.3-fpm start
-
-sleep 1500
+service php7.3-fpm start -f

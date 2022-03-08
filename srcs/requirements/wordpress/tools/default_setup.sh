@@ -55,7 +55,27 @@ apt-get install -y php7.3-mysql php7.3-dom php7.3-simplexml php7.3-ssh2 php7.3-x
 echo -e "\n\e[32mphp\t\t\t\t\tinstalled\e[0m\n"
 
 
+# ===================== installing wordpress ===================== #
+# ================================================================ #
+
+SERVED_PATH=/var/www/html
+
+curl https://wordpress.org/wordpress-5.8.2.tar.gz > /tmp/wordpress-5.8.2.tar.gz
+
+mkdir -p ${SERVED_PATH}
+
+tar xzvf /tmp/wordpress-5.8.2.tar.gz -C ${SERVED_PATH}
+
+cp /conf/wp-config.php ${SERVED_PATH}/wordpress/wp-config.php
+
+mkdir ${SERVED_PATH}/wordpress/wp-content/upgrade
+
+echo -e "\n\e[32mwordpress\t\t\t\t\tinstalled\e[0m\n"
+
+
 # ========================== cleaning ============================ #
 # ================================================================ #
 
 rm apt.gpg
+
+rm -rf /conf

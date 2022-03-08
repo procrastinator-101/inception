@@ -28,6 +28,8 @@ services:
       - WordPress:${WORDPRESS_SERVED_FILES_PATH}
     networks:
       - inception
+    expose:
+      - 9000
 
   mariadb:
     build: requirements/mariadb

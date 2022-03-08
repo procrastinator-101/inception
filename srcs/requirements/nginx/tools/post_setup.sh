@@ -10,11 +10,12 @@ chown 400 /etc/ssl/private/
 echo -e "\n\e[32mDone Setting HTTPS\e[0m\n"
 
 
-# =================== organising served content ================== #
+# ======================= Configuring Nginx ===================== #
 # ================================================================ #
 
 cp /conf/nginx.conf /etc/nginx/
 cp /conf/default.conf /etc/nginx/conf.d/
+cp /conf/fastcgi_params /etc/nginx/fastcgi_params
 
 rm -rf /etc/nginx/sites-enabled/*
 rm -rf /etc/nginx/sites-available/*

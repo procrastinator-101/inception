@@ -66,12 +66,27 @@ mkdir -p ${SERVED_PATH}
 
 tar xzvf /tmp/wordpress-5.8.2.tar.gz -C ${SERVED_PATH}
 
-cp /conf/wp-config.php ${SERVED_PATH}/wordpress/wp-config.php
-
 mkdir ${SERVED_PATH}/wordpress/wp-content/upgrade
 
 echo -e "\n\e[32mwordpress\t\t\t\t\tinstalled\e[0m\n"
 
+
+# ==================== configuring wordpress ===================== #
+# ================================================================ #
+
+cp -f /conf/wp-config.php ${SERVED_PATH}/wordpress/wp-config.php
+
+echo -e "\n\e[32mwordpress\t\t\t\t\tconfigured\e[0m\n"
+
+
+# ===================== configuring php-fpm ====================== #
+# ================================================================ #
+
+cp -f /conf/www.conf /etc/php/7.3/fpm/pool.d/
+
+echo -e "\n\e[32mphp-fpm\t\t\t\t\tconfigured\e[0m\n"
+
+service php7.3-fpm start
 
 # ========================== cleaning ============================ #
 # ================================================================ #

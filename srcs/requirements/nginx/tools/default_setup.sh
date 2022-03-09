@@ -25,7 +25,7 @@ cp -f /conf/fastcgi_params /etc/nginx/
 rm -rf /etc/nginx/sites-enabled/*
 rm -rf /etc/nginx/sites-available/*
 
-echo -e "\n\e[32mDone Configuring Nginx\e[0m\n"
+echo -e "\n\e[32mNginx\t\t\t\t\tconfigured\e[0m\n"
 
 
 # ================== setting https credentials =================== #
@@ -34,7 +34,7 @@ echo -e "\n\e[32mDone Configuring Nginx\e[0m\n"
 cp -p /conf/nginx-selfsigned.key /etc/ssl/private/
 cp -p /conf/nginx-selfsigned.crt /etc/ssl/certs/
 
-echo -e "\n\e[32mDone Setting HTTPS\e[0m\n"
+echo -e "\n\e[32mHttps\t\t\t\t\tset up\e[0m\n"
 
 
 # ========================== cleaning ============================ #

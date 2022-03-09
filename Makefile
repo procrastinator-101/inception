@@ -26,7 +26,8 @@ MARIADB_TOOLS_SRC = $(MARIADB_SRC_PATH)/tools/default_setup.sh \
 MARIADB_SRC = $(MARIADB_SRC_PATH)/Dockerfile $(MARIADB_CONF_SRC) $(MARIADB_TOOLS_SRC)
 
 
-WORDPRESS_CONF_SRC = $(WORDPRESS_SRC_PATH)/conf/wp-config.php
+WORDPRESS_CONF_SRC = $(WORDPRESS_SRC_PATH)/conf/wp-config.php \
+					 $(WORDPRESS_SRC_PATH)/conf/www.conf
 
 WORDPRESS_TOOLS_SRC = $(WORDPRESS_SRC_PATH)/tools/default_setup.sh \
 					  $(WORDPRESS_SRC_PATH)/tools/post_setup.sh
@@ -47,6 +48,7 @@ clean:
 
 fclean: clean
 	docker volume rm DB WordPress
+	docker system prune -f
 
 re: fclean all
 

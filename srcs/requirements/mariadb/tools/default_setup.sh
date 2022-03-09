@@ -15,3 +15,9 @@ echo -e "\n\e[32mmariadb\t\t\t\t\tinstalled\e[0m\n"
 apt-get -y install expect
 echo -e "\n\e[32mexpect\t\t\t\t\tinstalled\e[0m\n"
 
+
+# ===================== configuring Mariadb ====================== #
+# ================================================================ #
+
+cp -f /conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+echo -e "\n\e[32mMariadb\t\t\t\t\tconfigured\e[0m\n"

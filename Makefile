@@ -37,6 +37,9 @@ SRC = srcs/docker-compose.yml $(NGINX_SRC) $(MARIADB_SRC) $(WORDPRESS_SRC)
 
 
 all : $(SRC)
+	docker-compose -f srcs/docker-compose.yml up -d
+
+build : $(SRC)
 	docker-compose -f srcs/docker-compose.yml up --build -d
 
 clean:

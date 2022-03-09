@@ -4,7 +4,7 @@
 # ================================================================ #
 
 chown 400 /etc/ssl/private/
-echo -e "\n\e[32mDone Setting HTTPS\e[0m\n"
+echo -e "\n\e[32mDone changing ssl Keys ownership\e[0m\n"
 
 
 # ======================= starting nginx ========================= #

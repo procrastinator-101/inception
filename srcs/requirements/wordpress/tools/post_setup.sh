@@ -18,6 +18,4 @@ echo -e "\n\e[32mDone configuring Wordpress\e[0m\n"
 # ===================== starting fpm service ===================== #
 # ================================================================ #
 
-service php7.3-fpm start
-
-sleep 5000
+php7.3-fpm -F -R

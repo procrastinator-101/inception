@@ -86,7 +86,12 @@ cp -f /conf/www.conf /etc/php/7.3/fpm/pool.d/
 
 echo -e "\n\e[32mphp-fpm\t\t\t\t\tconfigured\e[0m\n"
 
+
+# == start php-fpm service to intialise /run/php/php7.3-fpm.pid == #
+# ================================================================ #
+
 service php7.3-fpm start
+
 
 # ========================== cleaning ============================ #
 # ================================================================ #

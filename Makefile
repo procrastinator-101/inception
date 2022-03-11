@@ -41,13 +41,17 @@ all : $(SRC)
 	docker-compose -f srcs/docker-compose.yml up -d
 
 build : $(SRC)
+	mkdir -p /goinfre/yarroubi/dockerSharedFiles/DB
+	mkdir -p /goinfre/yarroubi/dockerSharedFiles/WordPress
 	docker-compose -f srcs/docker-compose.yml up --build -d
 
 clean:
 	docker-compose -f srcs/docker-compose.yml down
 
 fclean: clean
-	docker volume rm DB WordPress
+	rm -rf /goinfre/yarroubi/dockerSharedFiles/*
+	docker rmi $$(docker images -q)
+	docker volume rm -f DB WordPress
 	docker system prune -f
 
 re: fclean all

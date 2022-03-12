@@ -1,0 +1,12 @@
+mysql :
+  -   mysql_secure_installation : done
+  -   mysql root password : done
+  -   run mysql in the foreground
+
+wordpress:
+  -   add env variables in wordpress configuration file
+  -   construct the wordpress start page  : done
+  -   add wordpress users : done
+  -   construct the virtual machine
+
+-   read about volumes more : parametrs...

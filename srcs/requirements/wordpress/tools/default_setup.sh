@@ -64,17 +64,27 @@ curl https://wordpress.org/wordpress-5.8.2.tar.gz > /tmp/wordpress-5.8.2.tar.gz
 
 mkdir -p ${SERVED_PATH}
 
-tar xzvf /tmp/wordpress-5.8.2.tar.gz -C ${SERVED_PATH}
+tar xzvf /tmp/wordpress-5.8.2.tar.gz -C /tmp
 
-mkdir ${SERVED_PATH}/wordpress/wp-content/upgrade
+mv /tmp/wordpress/* ${SERVED_PATH}
+
+mkdir ${SERVED_PATH}/wp-content/upgrade
 
 echo -e "\n\e[32mwordpress\t\t\t\t\tinstalled\e[0m\n"
+
+
+# ================================= installing wp-CLI ================================ #
+# ==================================================================================== #
+
+wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+
+mv wp-cli.phar /usr/local/bin/wp
 
 
 # ==================== configuring wordpress ===================== #
 # ================================================================ #
 
-cp -f /conf/wp-config.php ${SERVED_PATH}/wordpress/wp-config.php
+cp -f /conf/wp-config.php ${SERVED_PATH}/wp-config.php
 
 echo -e "\n\e[32mwordpress\t\t\t\t\tconfigured\e[0m\n"
 

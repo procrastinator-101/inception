@@ -8,7 +8,13 @@ expect "Enter current password for root (enter for none): "
 send "\r"
 
 expect "Set root password? "
-send "n\r"
+send "y\r"
+
+expect "New password: "
+send "$env(MYSQL_ROOT_PASSWORD)\r"
+
+expect "Re-enter new password: "
+send "$env(MYSQL_ROOT_PASSWORD)\r"
 
 expect "Remove anonymous users? "
 send "y\r"

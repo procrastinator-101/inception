@@ -29,3 +29,21 @@ CSR : a file that containes info about the FQDN that the CA use to authenticate 
 -   none : isolated network that allows no communication outside of it.
 
 -   host : the network of the host machine. the containers can't use the same port.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+docker compose 1:
+    -   no support for service networks (containers can't communicate with each other without links)
+    -   no dependency between containers
+docker compose 2:
+    -   services keyword added
+    -   version must specified in the file
+    -   networks added
+    -   dependency added
+docker compose 3:
+    -   support for docker-swarm
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+entrypoint vs cmd
+    entrypoint sleep
+    cmd 5
+
+    docker run container 10

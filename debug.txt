@@ -1,0 +1,1 @@
+select * from TABLES where TABLE_SCHEMA='wordpress' and TABLE_NAME='wp_options';

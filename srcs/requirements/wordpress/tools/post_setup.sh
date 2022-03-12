@@ -20,13 +20,13 @@ echo -e "\n\e[32mDone configuring Wordpress\e[0m\n"
 
 chmod u+x /usr/local/bin/wp
 
-# wp core install --allow-root --url=localhost --path=${SERVED_PATH} --title=resume --admin_user=$WORDPRESS_ADMIN --admin_password=$WORDPRESS_ADMIN_PASSWORD --admin_email=yarroubi@student.1337.ma
+wp core install --allow-root --url=localhost --path=${SERVED_PATH} --title=resume --admin_user=$WORDPRESS_ADMIN --admin_password=$WORDPRESS_ADMIN_PASSWORD --admin_email=yarroubi@student.1337.ma
 
 
 # ===============  creating worpdress users  ================= #
 # ============================================================ #
 
-# wp --allow-root --path=${SERVED_PATH} user create $WORDPRESS_REGULAR_USER $WORDPRESS_REGULAR_USER@gmail.com --role=author --user_pass=$WORDPRESS_REGULAR_USER_PASSWORD
+wp --allow-root --path=${SERVED_PATH} user create $WORDPRESS_REGULAR_USER $WORDPRESS_REGULAR_USER@gmail.com --role=author --user_pass=$WORDPRESS_REGULAR_USER_PASSWORD
 
 
 # ===================== starting fpm service ===================== #

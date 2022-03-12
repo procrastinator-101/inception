@@ -23,5 +23,4 @@ mysql -e "FLUSH PRIVILEGES;"
 # ============ starting mysql service in the foreground ========== #
 # ================================================================ #
 
-
 sleep 5000

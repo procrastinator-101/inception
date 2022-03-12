@@ -59,12 +59,13 @@ echo -e "\n\e[32mphp\t\t\t\t\tinstalled\e[0m\n"
 # ================================================================ #
 
 SERVED_PATH=/var/www/html
+WORDPRESS_PACKAGE=wordpress-5.9.tar.gz
 
-curl https://wordpress.org/wordpress-5.8.2.tar.gz > /tmp/wordpress-5.8.2.tar.gz
+curl https://wordpress.org/$WORDPRESS_PACKAGE > /tmp/$WORDPRESS_PACKAGE
 
 mkdir -p ${SERVED_PATH}
 
-tar xzvf /tmp/wordpress-5.8.2.tar.gz -C /tmp
+tar xzvf /tmp/$WORDPRESS_PACKAGE -C /tmp
 
 mv /tmp/wordpress/* ${SERVED_PATH}
 

@@ -4,10 +4,12 @@ mysql :
   -   run mysql in the foreground
 
 wordpress:
-  -   add env variables in wordpress configuration file
+  -   add env variables in wordpress configuration file : done
   -   construct the wordpress start page  : done
   -   add wordpress users : done
   -   construct the virtual machine
 
--   read about drivers more : parametrs...
--   watch tutorial videos:
+documentation:
+-   read about drivers more
+-   image by docker vs docker by docker-compose
+-   watch tutorial videos

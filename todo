@@ -11,9 +11,11 @@ wordpress:
 
 documentation:
 -   read about drivers more
--   image by docker vs docker by docker-compose
+-   image by docker vs docker by docker-compose : done
 -   watch tutorial videos
 -   replicas
+-   layers -> permissions
+-   volumes
 
 
 dockerfiles :

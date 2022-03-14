@@ -1,7 +1,7 @@
 Docker CLI :
 
 docker logs : prints the logs of a conatiner (which usually was run in a the bckground)
-    -   add -f oprion to follow the logs
+    -   add -f option to follow the logs
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,3 +56,11 @@ mysqld_safe :
 registry : server side app that stores and allows redistribution of images.
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 docker deamon --> REST API --> docker client (CLI)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+dockerfile arg :
+    -   var=value --> value is the de value, used if no value is passed on build time
+    -   not available after the image is built
+    -   visible only at the stage they are delared
+dockerfile env :
+    -   con't be overriden on build time (i,e through command line)
+    -   available during the image build time and the container run time

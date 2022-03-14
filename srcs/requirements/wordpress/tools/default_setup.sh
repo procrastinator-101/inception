@@ -51,15 +51,11 @@ apt-get install -y php7.3-mysql
 
 apt-get install -y php7.3-mysql php7.3-dom php7.3-simplexml php7.3-ssh2 php7.3-xml php7.3-xmlreader php7.3-curl  php7.3-exif  php7.3-ftp php7.3-gd  php7.3-iconv php7.3-imagick php7.3-json  php7.3-mbstring php7.3-posix php7.3-sockets php7.3-tokenizer
 
-
 echo -e "\n\e[32mphp\t\t\t\t\tinstalled\e[0m\n"
 
 
 # ===================== installing wordpress ===================== #
 # ================================================================ #
-
-SERVED_PATH=/var/www/html
-WORDPRESS_PACKAGE=wordpress-5.9.tar.gz
 
 curl https://wordpress.org/$WORDPRESS_PACKAGE > /tmp/$WORDPRESS_PACKAGE
 
@@ -81,13 +77,22 @@ wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
 mv wp-cli.phar /usr/local/bin/wp
 
+chmod u+x /usr/local/bin/wp
+
 
 # ==================== configuring wordpress ===================== #
 # ================================================================ #
 
 cp -f /conf/wp-config.php ${SERVED_PATH}/wp-config.php
 
-echo -e "\n\e[32mwordpress\t\t\t\t\tconfigured\e[0m\n"
+chown -R www-data:www-data ${SERVED_PATH}
+
+find ${SERVED_PATH} -type d -exec chmod 750 {} \;
+find ${SERVED_PATH} -type f -exec chmod 640 {} \;
+
+chmod 644 ${SERVED_PATH}/wp-config.php
+
+echo -e "\n\e[32mDone configuring Wordpress\e[0m\n"
 
 
 # ===================== configuring php-fpm ====================== #

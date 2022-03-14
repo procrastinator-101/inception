@@ -21,7 +21,10 @@ services:
     
 
   wordpress:
-    build: requirements/wordpress
+    build:
+      context: requirements/wordpress
+      args:
+        - SERVED_PATH=${WORDPRESS_SERVED_FILES_PATH}
     image: wordpress
     container_name: wordpress
     restart: unless-stopped

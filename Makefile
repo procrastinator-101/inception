@@ -1,6 +1,11 @@
 Author = younes
 
 
+MAC_VOLUMES_PATH = /goinfre/yarroubi/dockerSharedFiles
+UBUNTU_VOLUMES_PATH = /home/yarroubi/data
+
+VOLUMES_PATH = $(MAC_VOLUMES_PATH)
+
 NGINX_SRC_PATH = srcs/requirements/nginx
 MARIADB_SRC_PATH = srcs/requirements/mariadb
 WORDPRESS_SRC_PATH = srcs/requirements/wordpress
@@ -41,8 +46,8 @@ SRC = srcs/docker-compose.yml $(NGINX_SRC) $(MARIADB_SRC) $(WORDPRESS_SRC)
 all: build
 
 build: $(SRC)
-	mkdir -p /goinfre/yarroubi/dockerSharedFiles/DB
-	mkdir -p /goinfre/yarroubi/dockerSharedFiles/WordPress
+	mkdir -p $(VOLUMES_PATH)/DB
+	mkdir -p $(VOLUMES_PATH)/WordPress
 	docker-compose -f srcs/docker-compose.yml up --build -d
 
 up: $(SRC)
@@ -53,7 +58,7 @@ down:
 
 clean: down
 	docker volume rm -f DB WordPress
-	rm -rf /goinfre/yarroubi/dockerSharedFiles/*
+	rm -rf $(VOLUMES_PATH)/*
 
 fclean: clean
 	docker rmi -f $$(docker images -q)

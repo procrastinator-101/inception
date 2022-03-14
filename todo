@@ -12,11 +12,12 @@ wordpress:
 documentation:
 -   read about drivers more
 -   image by docker vs docker by docker-compose : done
--   watch tutorial videos
+-   watch Docker Networking Tutorial
+-   watch Docker for Beginners Full Free Course
 -   replicas
 -   layers -> permissions
 -   volumes
--   dockerfile arg --> finish reading
+-   dockerfile arg --> finish reading : done
 
 
 dockerfiles :

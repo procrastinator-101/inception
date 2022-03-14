@@ -61,6 +61,8 @@ dockerfile arg :
     -   var=value --> value is the de value, used if no value is passed on build time
     -   not available after the image is built
     -   visible only at the stage they are delared
+    -   if its value changes between builds, it causes a chache miss on its first use not its 
+        definition (i.e ARG var in the dockerfile)
 dockerfile env :
     -   con't be overriden on build time (i,e through command line)
     -   available during the image build time and the container run time

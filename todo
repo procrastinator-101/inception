@@ -1,7 +1,7 @@
 mysql :
   -   mysql_secure_installation : done
   -   mysql root password : done
-  -   run mysql in the foreground
+  -   run mysql in the foreground : done
 
 wordpress:
   -   add env variables in wordpress configuration file : done
@@ -13,3 +13,8 @@ documentation:
 -   read about drivers more
 -   image by docker vs docker by docker-compose
 -   watch tutorial videos
+-   replicas
+
+
+dockerfiles :
+-   use cmd

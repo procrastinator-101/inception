@@ -19,10 +19,18 @@ mysql -e "GRANT ALL ON $WORDPRESS_DB.* TO '$WORDPRESS_ADMIN' IDENTIFIED BY '$WOR
 
 mysql -e "FLUSH PRIVILEGES;"
 
+service mysql stop
+
+
+# ========================== cleaning ============================ #
+# ================================================================ #
+
+rm -rf /tools
+
+rm -rf /conf
+
 
 # ============ starting mysql service in the foreground ========== #
 # ================================================================ #
-
-service mysql stop
 
 mysqld_safe

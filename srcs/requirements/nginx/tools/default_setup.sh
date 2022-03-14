@@ -37,6 +37,13 @@ cp -p /conf/nginx-selfsigned.crt /etc/ssl/certs/
 echo -e "\n\e[32mHttps\t\t\t\t\tset up\e[0m\n"
 
 
+# ================= changing ssl keys ownership ================== #
+# ================================================================ #
+
+chmod -R 400 /etc/ssl/private/
+echo -e "\n\e[32mDone changing ssl Keys ownership\e[0m\n"
+
+
 # ========================== cleaning ============================ #
 # ================================================================ #
 

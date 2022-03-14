@@ -16,7 +16,8 @@ documentation:
 -   replicas
 -   layers -> permissions
 -   volumes
+-   dockerfile arg --> finish reading
 
 
 dockerfiles :
--   use cmd
+-   use arg : done --> used on wordpress

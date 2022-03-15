@@ -7,16 +7,15 @@ wordpress:
   -   add env variables in wordpress configuration file : done
   -   construct the wordpress start page  : done
   -   add wordpress users : done
-  -   construct the virtual machine
+  -   construct the virtual machine : done
 
 documentation:
 -   read about drivers more
 -   image by docker vs docker by docker-compose : done
 -   watch Docker Networking Tutorial
--   watch Docker for Beginners Full Free Course
+-   watch Docker for Beginners Full Free Course : done
 -   replicas
--   layers -> permissions
--   volumes
+-   volumes    2
 -   dockerfile arg --> finish reading : done
 
 

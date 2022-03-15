@@ -66,3 +66,7 @@ dockerfile arg :
 dockerfile env :
     -   con't be overriden on build time (i,e through command line)
     -   available during the image build time and the container run time
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+volume monting : the volume is mounted on the default docker /var/lib/docker/volumes folder
+volume binding : the volume is mounted on any directory on the docker host

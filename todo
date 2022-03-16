@@ -14,9 +14,9 @@ documentation:
 -   image by docker vs docker by docker-compose : done
 -   watch Docker Networking Tutorial
 -   watch Docker for Beginners Full Free Course : done
--   replicas
 -   volumes    2
 -   dockerfile arg --> finish reading : done
+-   ip before port mapping
 
 
 dockerfiles :

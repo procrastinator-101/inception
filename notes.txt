@@ -70,3 +70,7 @@ dockerfile env :
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 volume monting : the volume is mounted on the default docker /var/lib/docker/volumes folder
 volume binding : the volume is mounted on any directory on the docker host
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+driver_opts : options of the mount command
+    -   none : used with virtual filesystems so that they can be mounted with different permissions and settings

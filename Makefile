@@ -4,7 +4,7 @@ Author = younes
 MAC_VOLUMES_PATH = /goinfre/yarroubi/dockerSharedFiles
 UBUNTU_VOLUMES_PATH = /home/yarroubi/data
 
-VOLUMES_PATH = $(MAC_VOLUMES_PATH)
+VOLUMES_PATH = $(UBUNTU_VOLUMES_PATH)
 
 NGINX_SRC_PATH = srcs/requirements/nginx
 MARIADB_SRC_PATH = srcs/requirements/mariadb
@@ -40,30 +40,36 @@ WORDPRESS_TOOLS_SRC = $(WORDPRESS_SRC_PATH)/tools/default_setup.sh \
 
 WORDPRESS_SRC = $(WORDPRESS_SRC_PATH)/Dockerfile $(WORDPRESS_CONF_SRC) $(WORDPRESS_TOOLS_SRC)
 
-SRC = srcs/docker-compose.yml $(NGINX_SRC) $(MARIADB_SRC) $(WORDPRESS_SRC)
+SRC = srcs/docker-compose.yml srcs/.env $(NGINX_SRC) $(MARIADB_SRC) $(WORDPRESS_SRC)
 
 
 all: build
 
-build: $(SRC)
-	mkdir -p $(VOLUMES_PATH)/DB
-	mkdir -p $(VOLUMES_PATH)/WordPress
-	docker-compose -f srcs/docker-compose.yml up --build -d
+build: volumes hosts $(SRC)
+	sudo docker-compose -f srcs/docker-compose.yml up --build -d
 
-up: $(SRC)
-	docker-compose -f srcs/docker-compose.yml up -d
+up: volumes hosts $(SRC)
+	sudo docker-compose -f srcs/docker-compose.yml up -d
 
 down:
-	docker-compose -f srcs/docker-compose.yml down
+	sudo docker-compose -f srcs/docker-compose.yml down
+
+volumes:
+	sudo mkdir -p $(VOLUMES_PATH)/DB
+	sudo mkdir -p $(VOLUMES_PATH)/WordPress
+
+hosts:
+	sudo sed -i '/yarroubi.42.fr/d' /etc/hosts
+	echo '127.0.0.1 yarroubi.42.fr' | sudo tee -a /etc/hosts
 
 clean: down
-	docker volume rm -f DB WordPress
-	rm -rf $(VOLUMES_PATH)/*
+	sudo docker volume rm -f DB WordPress
+	sudo rm -rf $(VOLUMES_PATH)/*
 
 fclean: clean
-	docker rmi -f $$(docker images -q)
-	docker system prune -f
+	sudo docker rmi -f $$(docker images -q)
+	sudo docker system prune -f
 
 re: fclean all
 
-.PHONY: all up build down clean fclean re
+.PHONY: all up build down volumes hosts clean fclean re

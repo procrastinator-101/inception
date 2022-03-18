@@ -24,7 +24,8 @@ NGINX_SRC = $(NGINX_SRC_PATH)/Dockerfile $(NGINX_CONF_SRC) $(NGINX_TOOLS_SRC)
 
 
 MARIADB_CONF_SRC = $(MARIADB_SRC_PATH)/conf/50-server.cnf \
-				   $(MARIADB_SRC_PATH)/conf/mysql_secure_installation.exp
+				   $(MARIADB_SRC_PATH)/conf/mysql_secure_installation.exp \
+				   $(MARIADB_SRC_PATH)/conf/wpStart.sql
 
 MARIADB_TOOLS_SRC = $(MARIADB_SRC_PATH)/tools/default_setup.sh \
 					$(MARIADB_SRC_PATH)/tools/post_setup.sh

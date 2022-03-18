@@ -70,16 +70,6 @@ mkdir ${SERVED_PATH}/wp-content/upgrade
 echo -e "\n\e[32mwordpress\t\t\t\t\tinstalled\e[0m\n"
 
 
-# ================================= installing wp-CLI ================================ #
-# ==================================================================================== #
-
-wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-
-mv wp-cli.phar /usr/local/bin/wp
-
-chmod u+x /usr/local/bin/wp
-
-
 # ==================== configuring wordpress ===================== #
 # ================================================================ #
 

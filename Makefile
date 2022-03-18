@@ -67,7 +67,7 @@ clean: down
 	sudo rm -rf $(VOLUMES_PATH)/*
 
 fclean: clean
-	sudo docker rmi -f $$(docker images -q)
+	sudo docker rmi -f $$(sudo docker images -q)
 	sudo docker system prune -f
 
 re: fclean all

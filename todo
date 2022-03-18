@@ -1,6 +1,6 @@
 mysql :
   -   mysql_secure_installation : done
-  -   mysql root password : done
+  -   mysql root password
   -   run mysql in the foreground : done
 
 wordpress:
@@ -12,11 +12,11 @@ wordpress:
 documentation:
 -   read about drivers more
 -   image by docker vs docker by docker-compose : done
--   watch Docker Networking Tutorial
+-   watch Docker Networking Tutorial : archived
 -   watch Docker for Beginners Full Free Course : done
 -   volumes    2
 -   dockerfile arg --> finish reading : done
--   ip before port mapping
+-   ip before port mapping : done
 
 
 dockerfiles :
